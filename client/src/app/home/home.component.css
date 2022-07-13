@@ -1,0 +1,25 @@
+.bord-right {
+    border-right: 2.5px solid #508CA4;
+}
+
+.bord-left {
+    border-left: 2.5px solid #508CA4;
+}
+
+.main-bkgrd {
+    background-color: #004F2D;
+}
+
+.project-card {
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #508CA4;
+    display: flex;
+    align-items: center;
+    width: 75%;
+}
+
+.project-card:hover {
+    background-color: #0A8754;
+    color: black;
+}
