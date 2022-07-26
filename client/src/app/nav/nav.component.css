@@ -1,0 +1,21 @@
+.nav-container {
+    display: flex;
+    background-color:cadetblue;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.nav-item ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav-item ul li{
+    padding-left: 10px;
+    padding-right: 10px;
+}

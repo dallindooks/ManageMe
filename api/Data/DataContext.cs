@@ -5,10 +5,13 @@ namespace api.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions options) : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+
         }
 
-        public DbSet<Projects> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
+        
     }
 }
