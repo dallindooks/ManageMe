@@ -1,0 +1,29 @@
+.header{
+    border-bottom: 2px solid grey;
+    box-shadow: 0 3px 4px -1px grey;
+}
+
+ul li {
+    list-style: none;
+}
+
+.completed-tasks {
+    list-style: none;
+    text-decoration: line-through;
+    color: green;
+}
+
+.container{
+    display: flex;
+    margin: 25px;
+}
+
+.container-bottom{
+    margin: 25px;
+}
+.third{
+    width: 33%;
+    margin: 5px;
+    border: 1px solid grey;
+    box-shadow: 0 3px 4px -1px grey;
+}

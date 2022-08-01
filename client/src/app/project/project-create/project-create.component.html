@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<div class="container">
+    <form action="" #projectCreateForm="ngForm" (ngSubmit)="ProjectCreate(projectCreateForm.value)">
+        <div class="form-component">
+            <label for="projectName">Name your Project</label>
+            <input type="text" placeholder="project name" name="title" ngModel>
+        </div>
+        <div class="form-component">
+            <label for="description">What is your project about?</label>
+            <textarea rows="6" placeholder="Description" name="description" ngModel>
+            </textarea>
+        </div>
+        <div class="form-component">
+            <label for="projectdate">When do you expect to finish?</label>
+            <input type="date" placeholder="Estimated Completion Date" name="expectedCompletion" ngModel>
+        </div>
+        <div class="form-component">
+            <button type="submit">Create Project</button>
+        </div>
+    </form>
+</div>

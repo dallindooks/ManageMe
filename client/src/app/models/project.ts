@@ -4,5 +4,4 @@ export interface Project {
     description: string;
     createdDate: Date;
     expectedCompletion: Date;
-    tasks: Task[];
 }

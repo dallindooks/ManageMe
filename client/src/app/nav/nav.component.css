@@ -1,8 +1,9 @@
 .nav-container {
     display: flex;
-    background-color:cadetblue;
+    background-color:#00A9D8;
     justify-content: space-between;
     align-items: center;
+    color: white;
 }
 
 .nav-item{
@@ -18,4 +19,12 @@
 .nav-item ul li{
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 4px;
+    border: 2px solid white;
+    margin: 2px;
+    border-radius: 25px;
+}
+
+.nav-item ul li:hover {
+    background-color: black;
 }

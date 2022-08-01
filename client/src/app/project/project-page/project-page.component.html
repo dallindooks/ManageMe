@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+<div class="header">
+    <h1>
+        {{project.title}}
+    </h1>
+</div>
+<div class="container">
+    <div class="new-task">
+        <button (click)="openModal()">
+            Create New Task
+        </button>
+    </div>
+</div>
+<div class="container">
+    <div class="third">
+        <h3>Current Tasks</h3>
+        <ng-container *ngFor="let task of tasks">
+            <ul *ngIf="!task.completed">
+                <li>
+                    <div class="current-tasks">
+                        {{task.title}}
+                    </div>
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+    <div class="third">
+        <h3>Tomorrow's Tasks</h3>
+    </div>
+    <div class="third">
+        <h3>Coming Soon</h3>
+    </div>
+</div>
+<div class="container-bottom">
+    <h3>Completed Tasks</h3>
+    <ng-container *ngFor="let task of tasks">
+        <ul *ngIf="task.completed">
+            <li>
+                <div class="completed-tasks">
+                    {{task.title}}
+                </div>
+            </li>
+        </ul>
+    </ng-container>
+</div>

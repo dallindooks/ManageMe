@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="grid-column">
+    <ul class="project-list">
+      <a href="/project-create">
+        <li class="list-group-item">
+          Create New Project
+        </li>
+    </a>
+      <li 
+          *ngFor="let project of projects"
+          class="list-group-item"
+          >
+          <a routerLink="/project-page/{{project.id}}" routerLinkActive="active">
+          {{ project.title }}
+        </a>
+      </li>
+  </ul>
+</div>
+<div class="grid-column">
+  <ul class="project-list">
+    <li 
+      *ngFor="let task of tasks"
+      class="list-group-item">
+      {{ task.title }}
+      <div>
+        {{ task.projectId }}
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+<router-outlet></router-outlet>
