@@ -30,7 +30,7 @@ import { MatOptionModule } from '@angular/material/core';
     BrowserAnimationsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatOptionModule
+    MatOptionModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
