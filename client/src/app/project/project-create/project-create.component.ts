@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { Project } from 'src/app/models/project';
 
 @Component({
@@ -8,7 +9,7 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./project-create.component.css']
 })
 export class ProjectCreateComponent implements OnInit {
-
+  
   constructor(private httpCLient: HttpClient) { }
 
   ngOnInit(): void {

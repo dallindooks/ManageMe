@@ -1,16 +1,23 @@
-<div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modalRef.close()"
-    ></button>
-  </div>
-  <div class="modal-body">...</div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
-      Close
-    </button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
+<div [ngClass]="blockStyle">
+
+</div>
+<div class="btn-container">
+    <button (click)="openPopup()" class="btn"> Create New Task</button>
+</div>
+
+<form #taskCreateForm="ngForm" id="taskCreateForm" (ngSubmit)="TaskCreate(taskCreateForm.value)">
+    <div [ngClass]="popupStyle">
+        <div class="container">
+            <h4>Create New Task</h4>
+            <label for="title">Task Name</label>
+            <input type="text" placeholder="Task Name" name="title" ngModel>
+            <label for="description">Description</label>
+            <textarea rows="6" placeholder="Description" name="description" ngModel>
+            </textarea>
+            <label for="dueDate">Due Date</label>
+            <input type="date" placeholder="Due Date" name="dueDate" ngModel>
+            <button type="submit">Create</button>
+            <button (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</form>

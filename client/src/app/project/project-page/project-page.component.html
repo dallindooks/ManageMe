@@ -3,14 +3,11 @@
     <h1>
         {{project.title}}
     </h1>
+    <h2>
+        Due On: {{project.expectedCompletion}}
+    </h2>
 </div>
-<div class="container">
-    <div class="new-task">
-        <button (click)="openModal()">
-            Create New Task
-        </button>
-    </div>
-</div>
+<app-create-task></app-create-task>
 <div class="container">
     <div class="third">
         <h3>Current Tasks</h3>
