@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/projectService';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-task',
@@ -17,6 +18,7 @@ export class CreateTaskComponent implements OnInit {
   blockStyle = {'block': false};
   taskCreateForm: NgForm;
   task: Task;
+  baseUrl= environment.apiUrl;
 
   currentURL: string = this.router.url;
   currentProject: string = this.currentURL.match(/[0-9]+$/).toString();
@@ -52,7 +54,7 @@ export class CreateTaskComponent implements OnInit {
 
   TaskCreate(task: Task){
     console.log(task);
-    this.httpClient.post<Task>('https://localhost:7261/api/Tasks?projectId=' + this.currentProject, task)
+    this.httpClient.post<Task>(this.baseUrl + 'Tasks?projectId=' + this.currentProject, task)
       .subscribe((response) => {
         console.log(response);
       });

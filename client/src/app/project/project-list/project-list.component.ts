@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/models/project';
 import { Task } from 'src/app/models/tasks';
 import { ProjectService } from 'src/app/services/projectService';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-list',
@@ -13,6 +14,7 @@ export class ProjectListComponent implements OnInit {
   projectId;
   projects: Project[];
   tasks: Task[];
+  baseUrl = environment.apiUrl;
   
   constructor(private projectService: ProjectService, private httpClient: HttpClient) {
     
@@ -27,7 +29,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   getTasks(){
-    this.httpClient.get<Task[]>('https://localhost:7261/api/Tasks').subscribe(
+    this.httpClient.get<Task[]>(this.baseUrl +'Tasks').subscribe(
         response => {
             this.tasks = response;
             console.log(this.tasks);

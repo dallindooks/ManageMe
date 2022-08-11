@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/projectService';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-create',
@@ -12,6 +13,7 @@ import { ProjectService } from 'src/app/services/projectService';
 })
 export class ProjectCreateComponent implements OnInit {
   projects: Project[];
+  baseUrl = environment.apiUrl;
   
   constructor(
     private httpCLient: HttpClient, 
@@ -28,7 +30,7 @@ export class ProjectCreateComponent implements OnInit {
 
   ProjectCreate(project: Project){
     console.log(project);
-    this.httpCLient.post<Project>('https://localhost:7261/api/Project', project)
+    this.httpCLient.post<Project>(this.baseUrl + 'api/Project', project)
       .subscribe((response) => {
         console.log(response);
       });
