@@ -1,0 +1,64 @@
+.closePopup{
+    top: 0;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.1);
+    left: 50%;
+    visibility: hidden;
+    transition: transform 0.5s, top 0.4s;
+}
+
+.openPopup{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    z-index: 101;
+}
+
+.openEdit{
+    visibility: visible;
+}
+
+.closeEdit{
+    visibility: hidden;
+    height: 0px;
+}
+
+.block{
+    top:-1000px;
+    right:-1000px;
+    bottom:-1000px;
+    left:-1000px;
+    padding-left: 200px;
+    background-color: black;
+    opacity: .7;
+    position: absolute;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.card{
+    width: 350px;
+}
+
+.card-footer{
+    text-align: right;
+    margin-right: 10px;
+}
+
+.card-footer:hover{
+    cursor: pointer;
+}
+
+mat-card-actions{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.openDetail{
+    visibility: visible;
+}
+
+.closeDetail{
+    visibility: hidden;
+    height: 0px;
+}

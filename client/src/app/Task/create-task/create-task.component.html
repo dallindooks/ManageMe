@@ -1,23 +1,57 @@
 <div [ngClass]="blockStyle">
 
 </div>
-<div class="btn-container">
-    <button (click)="openPopup()" class="btn"> Create New Task</button>
+<div class="top-container">
+    <div class="btn-container">
+        <button (click)="openPopup()" mat-raised-button color="primary"> Create New Task</button>
+    </div>
+    <div class="btn-container">
+        <button (click)="openPopupDelete()"
+            mat-raised-button 
+            color="warn" 
+            type="submit"
+            >
+            Delete Project
+        </button>
+    </div>
 </div>
+
+<div [ngClass]="popupStyleDelete">
+    <div class="container-delete">
+        <h4>Are you sure you would like to delete this project?</h4> 
+        <div class="delete-buttons">
+            <button mat-raised-button color="warn" (click)="deleteProject()">Delete</button>
+            <button mat-raised-button color="primary" (click)="closePopupDelete()">Close</button>
+        </div>
+        <br>
+        <h5>All unsaved changes will be lost.</h5>
+    </div>
+</div>
+
 
 <form #taskCreateForm="ngForm" id="taskCreateForm" (ngSubmit)="TaskCreate(taskCreateForm.value)">
     <div [ngClass]="popupStyle">
         <div class="container">
-            <h4>Create New Task</h4>
-            <label for="title">Task Name</label>
-            <input type="text" placeholder="Task Name" name="title" ngModel>
-            <label for="description">Description</label>
-            <textarea rows="6" placeholder="Description" name="description" ngModel>
-            </textarea>
-            <label for="dueDate">Due Date</label>
-            <input type="date" placeholder="Due Date" name="dueDate" ngModel>
-            <button type="submit">Create</button>
-            <button (click)="closePopup()">Cancel</button>
+            <h4><strong>Create New Task</strong></h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Task Name</mat-label>
+                <input matInput name="title" ngModel>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+            <textarea matInput name="description" ngModel></textarea>
+            </mat-form-field>
+            <div class="put-on-top">
+            <mat-form-field appearance="fill">
+                <mat-label>Due Date</mat-label>
+                <input matInput [matDatepicker]="picker" name="dueDate" ngModel >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker" style="z-index: 2000;"></mat-datepicker-toggle>
+                <mat-datepicker #picker style="z-index: 2000;"></mat-datepicker>
+            </mat-form-field>
+            </div>
+            <button type="submit" mat-raised-button color="primary">Create</button>
+            <button (click)="closePopup()" mat-raised-button color="warn">Cancel</button>
         </div>
     </div>
 </form>

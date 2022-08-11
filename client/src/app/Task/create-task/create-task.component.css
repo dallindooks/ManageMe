@@ -10,7 +10,12 @@
     display: flex;
     flex-direction: column;
     border-radius: 25px;
-    background-color: #cfcfcf;
+    background-color: white;
+}
+.btn{
+    margin-top: 20px;
+    margin-left: 25px;
+    width: 150px;
 }
 
 .closePopup{
@@ -26,19 +31,48 @@
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
     top: 50%;
-}
-
-.btn{
-    margin-top: 20px;
-    margin-left: 25px;
-    width: 150px;
+    z-index: 101;
 }
 
 .block{
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    padding-left: 200px;
     background-color: black;
     opacity: .7;
     position: absolute;
+    z-index: 100;
+}
+
+.container button{
+    margin: 15px;
+}
+
+.top-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+}
+
+.container-delete{
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
+    max-width: 350px;
+    padding: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 3px solid black;
+    box-shadow: 10px 5px 5px black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.delete-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 15px;
 }

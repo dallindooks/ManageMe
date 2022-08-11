@@ -4,28 +4,61 @@
         {{project.title}}
     </h1>
     <h2>
-        Due On: {{project.expectedCompletion}}
+        Due On: {{project.expectedCompletion | date: 'longDate'}}
     </h2>
 </div>
 <app-create-task></app-create-task>
 <div class="container">
     <div class="third">
-        <h3>Current Tasks</h3>
+        <h3>Today's Tasks</h3>
         <ng-container *ngFor="let task of tasks">
-            <ul *ngIf="!task.completed">
-                <li>
-                    <div class="current-tasks">
-                        {{task.title}}
-                    </div>
-                </li>
-            </ul>
+            <mat-card *ngIf="!task.completed && task.dueDate == today">
+                <mat-card-title>
+                    <h4>{{task.title}}</h4>
+                </mat-card-title>
+                <mat-card-subtitle class="card-bottom">
+                    {{task.dueDate | date: 'shortDate'}}
+                    <div><app-task-card [currentTask]="task"></app-task-card></div>
+                    <div><mat-checkbox
+                        (change)="taskComplete(task.id)"> 
+                    </mat-checkbox></div>
+                </mat-card-subtitle>
+            </mat-card>
+        </ng-container>
+    </div>
+    <div class="third Overdue">
+        <h3>Overdue</h3>
+        <ng-container *ngFor="let task of tasks">
+            <mat-card *ngIf="!task.completed && task.dueDate < today">
+                <mat-card-title>
+                    <h4>{{task.title}}</h4>
+                </mat-card-title>
+                <mat-card-subtitle class="card-bottom">
+                    <div>{{task.dueDate | date: 'shortDate'}}</div>
+                    <div><app-task-card [currentTask]="task"></app-task-card></div>
+                    <div><mat-checkbox
+                        (change)="taskComplete(task.id)"> 
+                    </mat-checkbox></div>
+                </mat-card-subtitle>
+            </mat-card>
         </ng-container>
     </div>
     <div class="third">
-        <h3>Tomorrow's Tasks</h3>
-    </div>
-    <div class="third">
-        <h3>Coming Soon</h3>
+        <h3>Upcoming</h3>
+        <ng-container *ngFor="let task of tasks">
+            <mat-card *ngIf="!task.completed && task.dueDate > today">
+                <mat-card-title>
+                    <h4>{{task.title}}</h4>
+                </mat-card-title>
+                <mat-card-subtitle class="card-bottom">
+                    {{task.dueDate | date: 'shortDate'}}
+                    <div><app-task-card [currentTask]="task"></app-task-card></div>
+                    <div><mat-checkbox
+                        (change)="taskComplete(task.id)"> 
+                    </mat-checkbox></div>
+                </mat-card-subtitle>
+            </mat-card>
+        </ng-container>
     </div>
 </div>
 <div class="container-bottom">

@@ -1,33 +1,28 @@
 <app-nav></app-nav>
 <div class="container">
-    <form #projectCreateForm="ngForm" (ngSubmit)="ProjectCreate(projectCreateForm.value)">
-        <div class="form-component">
-            <label for="projectName">Name your Project</label>
-            <input type="text" placeholder="project name" name="title" ngModel matInput>
-            <div class="alert">
-
-            </div>
-        </div>
-        <div class="form-component">
-            <label for="description">What is your project about?</label>
-            <textarea rows="6" placeholder="Description" name="description" ngModel required>
-            </textarea>
-        </div>
-        <div class="form-component">
-            <label for="projectdate">When do you expect to finish?</label>
-            <input type="date" placeholder="Estimated Completion Date" name="expectedCompletion" ngModel required>
-        </div>
-        <div class="form-component">
-            <button type="submit">Create Project</button>
-        </div>
+    <form #projectCreateForm="ngForm" (ngSubmit)="ProjectCreate(projectCreateForm.value)" class="create-form">
+        <mat-form-field appearance="fill">
+            <mat-label>Project Title</mat-label>
+            <input matInput name="title" ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput name="description" ngModel></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Estimated Completion Date</mat-label>
+            <input matInput [matDatepicker]="picker" name="expectedCompletion" ngModel>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            >
+            Create Project
+        </button>
     </form>
 </div>
-
-<mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+<router-outlet></router-outlet>

@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
+import { ProjectService } from 'src/app/services/projectService';
 
 @Component({
   selector: 'app-project-create',
@@ -9,10 +11,19 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./project-create.component.css']
 })
 export class ProjectCreateComponent implements OnInit {
+  projects: Project[];
   
-  constructor(private httpCLient: HttpClient) { }
+  constructor(
+    private httpCLient: HttpClient, 
+    private router: Router,
+    private projectService: ProjectService
+    ) { }
 
   ngOnInit(): void {
+    this.projectService.getProjects().subscribe((data: Project[]) => {
+      console.log(data);
+      this.projects = data;
+    });
   }
 
   ProjectCreate(project: Project){
@@ -21,6 +32,7 @@ export class ProjectCreateComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
       });
+      this.router.navigate(['/project-list']);
   }
 
 }

@@ -1,33 +1,48 @@
 <app-nav></app-nav>
 <div class="container">
   <div class="grid-column">
+    <h2 style="text-align: center;">Your Projects</h2>
     <ul class="project-list">
-      <a href="/project-create">
-        <li class="list-group-item">
+        <button 
+          mat-raised-button 
+          color="accent" 
+          style="width: 200px; margin-left: 15px;"
+          routerLink="/project-create">
           Create New Project
-        </li>
-    </a>
-      <li 
-          *ngFor="let project of projects"
-          class="list-group-item"
-          >
-          <a routerLink="/project-page/{{project.id}}" routerLinkActive="active">
-          {{ project.title }}
+      </button>
+      <div class="project-card" *ngFor="let project of projects">
+        <a routerLink="/project-page/{{project.id}}" routerLinkActive="active">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                {{project.title}}
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Due On: {{project.expectedCompletion | date: 'shortDate'}}
+            </mat-card-content>
+          </mat-card>
         </a>
-      </li>
-  </ul>
-</div>
-<div class="grid-column">
-  <ul class="project-list">
-    <li 
-      *ngFor="let task of tasks"
-      class="list-group-item">
-      {{ task.title }}
-      <div>
-        {{ task.projectId }}
       </div>
-    </li>
-  </ul>
+    </ul>
+  </div>
+  <div class="grid-column" style="margin-bottom: 75px;">
+    <h2 style="text-align: center;">Task List</h2>
+    <ul class="task-list">
+      <ng-container *ngFor="let task of tasks">
+        <mat-card *ngIf="!task.completed">
+          <mat-card-content>
+            <div>
+              {{task.title}}
+            </div>
+            <div>
+              Due on: {{task.dueDate | date: 'longDate'}}
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </ul>
+  </div>
 </div>
-</div>
+<app-footer></app-footer>
 <router-outlet></router-outlet>

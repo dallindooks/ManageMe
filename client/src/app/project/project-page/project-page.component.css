@@ -18,6 +18,20 @@ ul li {
     margin: 25px;
 }
 
+.container-top{
+    display: flex;
+    margin: 25px;
+    justify-content: right;
+}
+
+.contain-half{
+    width: 50%;
+}
+
+.right{
+    text-align: right;
+}
+
 .container-bottom{
     margin: 25px;
 }
@@ -25,5 +39,21 @@ ul li {
     width: 33%;
     margin: 5px;
     border: 1px solid grey;
+    border-radius: 15px;
     box-shadow: 0 3px 4px -1px grey;
+    padding: 15px;
 }
+
+mat-card{
+    margin: 5px;
+}
+
+.Overdue{
+    color: red;
+}
+
+.card-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+

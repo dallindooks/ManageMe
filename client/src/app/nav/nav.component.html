@@ -1,10 +1,7 @@
-<div class="nav-container">
-    <div class="nav-item">ManageMe!</div>
-    <div class="nav-item">
-        <ul>
-            <li>Home</li>
-            <li>Projects</li>
-            <li>Upcoming Tasks</li>
-        </ul>
-    </div>
-</div>
+<mat-toolbar color="primary">
+    <span class="spacer"></span>
+<button mat-button [routerLink]="['/project-list']" routerLinkActive="router-link-active" >Home</button>
+<button mat-button [routerLink]="['/project-create']">New Project</button>
+<button mat-button [routerLink]="['/project-List']">Task List</button>
+<span class="spacer"></span>
+</mat-toolbar>

@@ -1,0 +1,79 @@
+<button mat-button color="primary" (click)="openTaskCard(currentTask)">View Details</button>
+<div [ngClass]="blockStyle"></div>
+
+<div [ngClass]="popupStyle">
+    <div class="details card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <div [ngClass]="detailStyle">
+                        {{currentTask.title}}
+                    </div>
+                    <div [ngClass]="editStyle">
+                        Edit Task
+                    </div>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <div [ngClass]="detailStyle">
+                        Due On: {{currentTask.dueDate | date: 'longDate'}}
+                    </div>
+                    <div [ngClass]="editStyle">
+                        <form #taskEditForm="ngForm" (ngSubmit)="editTask(currentTask.id, taskEditForm.value)" id="edit" [formGroup]="editForm">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Title</mat-label>
+                                <input matInput formControlName="title" required name="title">
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Description</mat-label>
+                                <textarea matInput formControlName="description" required name="description"></textarea>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Due Date</mat-label>
+                                <input matInput [matDatepicker]="picker" name="dueDate" formControlName="dueDate">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <div>
+                                <mat-label>Mark Completed</mat-label>
+                                <mat-checkbox formControlName="completed"></mat-checkbox>
+                            </div>
+                            <mat-card-actions>
+                                <div>
+                                    <button mat-raised-button color="accent" type="submit" (click)="closeTaskCard()">Submit Changes</button>
+                                    
+                                    <button type="button" mat-raised-button color="primary" (click)="closeTaskCard()">Close</button>
+                                </div>
+                            </mat-card-actions>
+                        </form>
+                    </div>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div [ngClass]="detailStyle">
+                    <div class="card-content">
+                        <h4 style="text-decoration: underline;">Description:</h4>
+                        <p>{{currentTask.description}}</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>Mark Task Complete: <mat-checkbox (change)="taskComplete(currentTask.id)"></mat-checkbox>
+                        </h4>
+                    </div>
+                </div >
+            </mat-card-content>
+            <mat-card-actions>
+                <div [ngClass]="detailStyle">
+                    <button mat-raised-button color="accent" (click)="openEditCard()">Edit</button>
+                    <button mat-raised-button color="primary" (click)="closeTaskCard()">Close</button><br>
+                    
+                </div>
+            </mat-card-actions>
+            <mat-card-footer>
+                <div class="card-footer">
+                    <mat-icon color="warn" fontIcon="delete" (click)="deleteTask(currentTask.id)" style="left:0;"></mat-icon>
+                </div>
+                
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

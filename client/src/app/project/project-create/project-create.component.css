@@ -1,9 +1,20 @@
-/* .container{
+.create-form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    width: 300px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 20px;
 }
 
-.form-component{
+.container{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+/* .form-component{ 
     display: flex;
     flex-direction: column;
     width: 400px;
