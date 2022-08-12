@@ -13,14 +13,14 @@ export class TaskService {
   baseUrl = environment.apiUrl;
 
   taskComplete(id, currentTask): Observable<Object>{
-     return this.httpClient.put(this.baseUrl + 'api/Tasks/' + id, currentTask);
+     return this.httpClient.put(this.baseUrl + 'Tasks/' + id, currentTask);
   }
 
   editTask(id, currentTask): Observable<Object>{
-    return this.httpClient.put(this.baseUrl + 'api/Tasks/' + id, currentTask);
+    return this.httpClient.put(this.baseUrl + 'Tasks/' + id, currentTask);
   }
 
   deleteTask(id): Observable<Object>{
-    return this.httpClient.delete( this.baseUrl + 'api/Tasks/taskId?taskId=' + id);
+    return this.httpClient.delete( this.baseUrl + 'Tasks/taskId?taskId=' + id);
   }
 }

@@ -30,7 +30,7 @@ export class ProjectCreateComponent implements OnInit {
 
   ProjectCreate(project: Project){
     console.log(project);
-    this.httpCLient.post<Project>(this.baseUrl + 'api/Project', project)
+    this.httpCLient.post<Project>(this.baseUrl + 'Project', project)
       .subscribe((response) => {
         console.log(response);
       });

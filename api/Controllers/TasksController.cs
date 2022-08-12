@@ -65,7 +65,7 @@ namespace api.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Successfully Created");
+            return Ok(taskMap);
         }
         [HttpPut("{taskId}")]
         public IActionResult UpdateTask(int taskId, [FromBody] TaskDto updatedTask)

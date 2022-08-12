@@ -77,7 +77,7 @@ namespace api.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Successfully Created");
+            return Ok(projectMap);
         }
 
         [HttpDelete("projectId")]
