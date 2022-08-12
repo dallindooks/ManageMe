@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "api\\bin\\Release\\net6.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/24d0ee2d-19a4-43dd-b370-880751bdd39a/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/managemebydallin"
+}

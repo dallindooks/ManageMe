@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace api.Migrations
 {
-    public partial class sqlserver : Migration
+    public partial class azure : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
