@@ -69,7 +69,9 @@ export class TaskCardComponent implements OnInit {
       this.currentTask.completed = true;
     }
     console.log(this.currentTask);
-    this.taskService.taskComplete(id, this.currentTask).subscribe();
+    this.taskService.taskComplete(id, this.currentTask).subscribe(response => {
+      console.log(response);
+    });
   }
 
   editTask(id: Number, task){
