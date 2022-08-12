@@ -6,6 +6,7 @@ import { ProjectPageComponent } from './project/project-page/project-page.compon
 
 const routes: Routes = [
   {path: 'project-list', component: ProjectListComponent},
+  {path: '', component: ProjectListComponent},
   {path: 'project-create', component: ProjectCreateComponent},
   {path: 'project-page/:projectId', component: ProjectPageComponent}
 ];
