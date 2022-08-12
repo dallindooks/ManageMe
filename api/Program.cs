@@ -27,7 +27,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     if (env == "Development")
     {
         // Use connection string from file.
-        connStr = "Server=localhost; Port=5432; User Id=appuser; Password=mysecretpasswordb; Database=manageme";
+        connStr = "Server=localhost; Port=5432; User Id=appuser; Password=password; Database=manageme";
     }
     else
     {
